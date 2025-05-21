@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GuestEffect : ScriptableObject
 {
-    public void DoUpdateEffect(){
+    public virtual void DoUpdateEffect(){
 
     }
 
-    public void DoExhibitVisitEffect(){
+    public virtual void DoExhibitVisitEffect(){
 
     }
 
-    public void DoDeathEffect(){
+    public virtual void DoDeathEffect(){
 
     }
 }

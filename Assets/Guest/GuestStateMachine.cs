@@ -22,18 +22,19 @@ public class GuestStateMachine : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (!changingState)
+        if (false && !changingState){
             currentState.UpdateState();
+        }
     }
 
     public void EnterState(GuestState state){
         changingState = true;
-        GuestState newState = Instantiate(state);
+        //GuestState newState = Instantiate(state);
         if(currentState != null){
         currentState.ExitState();
         }
-        currentState = newState;
-        newState.EnterState(this);
+        currentState = state;
+        state.EnterState(this);
         changingState = false;
     }
 
@@ -51,7 +52,7 @@ public class GuestStateMachine : MonoBehaviour
         action.Invoke();
     }
 
-    private void OnDestroy() {
+    private void OnDisable() {
         EnterState(deathState);
     }
 }
